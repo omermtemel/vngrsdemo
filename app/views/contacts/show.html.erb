@@ -1,0 +1,16 @@
+<h1> Contact </h1>
+
+<p>
+  <b>Name:</b>
+  <%= @contact.name %>
+  <b>SurName:</b>
+  <%= @contact.lastname %>
+  <br>
+  <b>Phone:</b>
+  <%= @contact.phone%>
+  <br>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

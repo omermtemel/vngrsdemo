@@ -1,0 +1,25 @@
+<%= form_for(contact) do |f| %>
+  <% if contact.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in contact.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <p>
+    <%= f.label :name ,"Name"%><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :lastname ,"Last Name"%><br />
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.phone_field :phone %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>
