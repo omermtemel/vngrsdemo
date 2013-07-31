@@ -1,0 +1,6 @@
+
+<%= form_tag( { :action => 'upload' }, :multipart => true ) do %>
+  Upload file: <%= file_field( "form", "file" ,:accept => 'text/xml') %>
+  <br />
+  <%= submit_tag( "Upload file" ) %>
+<%end%>

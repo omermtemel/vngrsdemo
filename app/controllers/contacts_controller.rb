@@ -73,4 +73,14 @@ class ContactsController < ApplicationController
             redirect_to contacts_url, :notice =>  "Contact not found."
     end
   end
+  
+  def upload
+    require 'fileutils'
+    
+    Utilities.parse_and_insert_contacts(params['form']['file'].tempfile,current_user)
+    redirect_to contacts_url, :notice => "Contacts were added successfully."
+  end
+  
+  def file_upload
+  end 
 end

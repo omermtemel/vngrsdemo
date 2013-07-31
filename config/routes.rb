@@ -1,6 +1,10 @@
 Vngrsdemo::Application.routes.draw do
+  get 'contacts/bulky_insert', to: 'contacts#file_upload', as: :file_upload
+  post 'contacts/bulky_insert', to: 'contacts#upload'
   devise_for :users
   resources :contacts
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
