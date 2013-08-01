@@ -1,16 +1,26 @@
-<h1> Contact </h1>
 
-<p>
-  <b>Name:</b>
-  <%= @contact.name %>
-  <b>SurName:</b>
-  <%= @contact.lastname %>
-  <br>
-  <b>Phone:</b>
-  <%= @contact.phone%>
-  <br>
-</p>
+<div class="row-fluid marketing">
+	<hr>
+	<h3> Contact </h3>
+	<ul class="unstyled">
+	<p>
+	  <li>
+	  <b>Name:</b>
+	  <%= @contact.name %>
+	  </li>
 
+	  <li>
+	  <b>SurName:</b>
+	  <%= @contact.lastname %>
+	  </li>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+	  <li>
+	  <b>Phone:</b>
+	  <%= @contact.phone%>
+	  </li>
+	</p>
+	</ul>
+	<%= link_to 'Edit', edit_contact_path(@contact) %> |
+	<%= link_to 'Back', contacts_path %>
+</div>
+

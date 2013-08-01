@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @contacts = current_user.contacts
+    @contacts = current_user.contacts.order(:name).order(:lastname)
   end
   
   def create
@@ -76,9 +76,12 @@ class ContactsController < ApplicationController
   
   def upload
     require 'fileutils'
-    
-    Utilities.parse_and_insert_contacts(params['form']['file'].tempfile,current_user)
-    redirect_to contacts_url, :notice => "Contacts were added successfully."
+    begin
+      Utilities.parse_and_insert_contacts(params['form']['file'].tempfile,current_user)
+      redirect_to contacts_url, :notice => "Contacts were added successfully."
+    rescue
+      redirect_to contacts_url, :notice => "Something went wrong."
+    end
   end
   
   def file_upload

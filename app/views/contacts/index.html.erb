@@ -1,27 +1,39 @@
-<h1>Contacts List</h1>
+<div class="masthead">
+	<ul class="nav nav-pills pull-left">
+	  <li><%= link_to 'Add Contact', new_contact_path %></li>
+	  <li> <%= link_to 'Bulky Insert', file_upload_path %></li>
+	  <li> <%= link_to 'Back', :back %></li>
+	</ul>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-	<th>Surname</th>
-    <th>Phone</th>
-	<th></th>
-	<th></th>
-	<th></th>
-  </tr>
+<div class="row-fluid marketing">
+  <div class="span12">
+    <h4>Contacts List</h4>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>SurName</th>
+          <th>Phone</th>
+          <th></th>
+		  <th></th>
+		  <th></th>
+        </tr>
+      </thead>
+      <tbody>
+		<% @contacts.each do |contact| %>
+		  <tr>
+		    <td><%= contact.name %></td>
+			<td><%= contact.lastname %></td>
+			<td><%= contact.phone %></td>
+			<td><%= link_to 'Show', contact %></td>
+		    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+		    <td><%= button_to "Delete",contact, :method => :delete, data: { confirm: "Are you sure?" } %></td>
 
-<% @contacts.each do |contact| %>
-  <tr>
-    <td><%= contact.name %></td>
-	<td><%= contact.lastname %></td>
-	<td><%= contact.phone %></td>
-	<td><%= link_to 'Show', contact %></td>
-    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-    <td><%= button_to "Delete",contact, :method => :delete, data: { confirm: "Are you sure?" } %></td>
-    
-  </tr>
-<% end %>
-</table>
-<%= link_to 'Add Contact', new_contact_path %> <br>
-<%= link_to 'Bulky Insert', file_upload_path %> <br>
-<%= link_to 'Back', :back %>
+		  </tr>
+		<% end %>
+      </tbody>
+    </table> 
+  </div>
+</div>
+<hr>
