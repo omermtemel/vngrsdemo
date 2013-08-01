@@ -64,6 +64,8 @@ GEM
     nokogiri (1.5.0)
     orm_adapter (0.4.0)
     pg (0.16.0)
+    polyamorous (0.5.0)
+      activerecord (~> 3.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -88,6 +90,10 @@ GEM
       rdoc (~> 3.4)
       thor (< 2.0, >= 0.14.6)
     rake (10.1.0)
+    ransack (0.7.2)
+      actionpack (~> 3.0)
+      activerecord (~> 3.0)
+      polyamorous (~> 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     sass (3.2.10)
@@ -111,6 +117,7 @@ GEM
       multi_json (>= 1.0.2, ~> 1.0)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.2)
 
 PLATFORMS
   ruby
@@ -123,5 +130,7 @@ DEPENDENCIES
   nokogiri
   pg
   rails (= 3.2.12)
+  ransack
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)

@@ -8,7 +8,17 @@
 
 <div class="row-fluid marketing">
   <div class="span12">
-    <h4>Contacts List</h4>
+    <h4>Search Contacts</h4>
+ 	<p>
+	<%= search_form_for @q do |f| %>
+	  <%= f.label :name_cont %>
+	  <%= f.text_field :name_cont %>
+	  <%= f.label :lastname_cont %>
+	  <%= f.text_field :lastname_cont %>
+	  <%= f.submit %>
+	<% end %>
+	</p>
+	<h4> Contacts List </h4>
     <table class="table table-condensed">
       <thead>
         <tr>
@@ -33,7 +43,8 @@
 		  </tr>
 		<% end %>
       </tbody>
-    </table> 
+    </table>
+ 	<%= will_paginate @contacts%>
   </div>
 </div>
 <hr>

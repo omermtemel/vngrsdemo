@@ -2,7 +2,9 @@ class ContactsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @contacts = current_user.contacts.order(:name).order(:lastname)
+    @q = current_user.contacts.search(params[:q])                                                                         
+    @contacts = @q.result(:distinct => true).order(:name).order(:lastname).paginate(:page => params[:page], 
+                      :per_page => 10)
   end
   
   def create
